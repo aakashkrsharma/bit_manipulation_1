@@ -1,0 +1,35 @@
+import java.io.*;
+public class Main
+{
+    static int minReplace(int n)
+	{
+		int i, count=0, count1=0, n1=n;
+		for( i=0; n>1; i++)                    //to find no of replacement if n=n+1
+		{
+		    if ( n%2 == 0)
+		        n/=2;
+		    else
+		        n+=1;
+		    count++;
+		}
+		for( i=0; n1>1; i++)                    //to find no of replacement if n=n-1
+		{
+		    if( n1%2 == 0 )
+		        n1/=2;
+		    else
+		        n1-=1;
+		    count1++;
+		}
+        return (count < count1) ? count : count1;         //to find minimum replacement
+	}	
+	
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		
+        int arr[]={8,15,3,7},ans[]={3,5,2,4};
+        
+        for(int k=0;k<4;k++)    	
+    	    System.out.println("Expected o/p:  "+ans[k]+"\t\t\tActual o/p:  "+minReplace(arr[k]) );
+	}
+}
