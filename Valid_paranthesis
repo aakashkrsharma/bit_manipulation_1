@@ -1,0 +1,35 @@
+//n=6
+output:
+((()))
+(()())
+(())()
+()(())
+()()()
+
+
+
+
+package valid_paranthesis;
+public class validpara{
+
+  //a recursive function that print all the valid paranthesis
+    static void print_Valid_Paranthesis(int left_p,int right_p, String Valid_Paranthesis)
+    {
+        if(left_p==0 && right_p==0){
+            System.out.println(Valid_Paranthesis);
+        }
+        if(left_p>right_p){
+            return;
+        }
+        if(left_p>0){
+            print_Valid_Paranthesis(left_p-1,right_p,Valid_Paranthesis+"(");
+        }
+        if(right_p>0){
+            print_Valid_Paranthesis(left_p,right_p-1,Valid_Paranthesis+")");
+        }
+    }
+	public static void main(String[] args) {
+	    int n=6;
+		print_Valid_Paranthesis(n/2,n/2,"");
+	}
+}
